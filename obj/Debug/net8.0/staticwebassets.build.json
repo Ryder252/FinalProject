@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qGtC/F33ydS6N12tkZnqMMUJ28pEDXMS0ZaQ7T7vMdk=",
+  "Hash": "nKd3eJVJvG+2cRi/tK+AU7V+2IKvKOqzpHJy99FfVrw=",
   "Source": "Final_Project",
   "BasePath": "_content/Final_Project",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "Final_Project\\wwwroot",
       "Source": "Final_Project",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
       "BasePath": "_content/Final_Project",
       "Pattern": "**"
     }
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "C:\\Users\\Shane\\.nuget\\packages\\tewr.blazor.filereader\\3.3.2.23201\\staticwebassets\\FileReaderComponent.js.map"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Final_Project.styles.css",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Final_Project.styles.css",
       "SourceId": "Final_Project",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Final_Project",
       "RelativePath": "Final_Project.styles.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Final_Project.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Final_Project.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Final_Project.bundle.scp.css",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Final_Project.bundle.scp.css",
       "SourceId": "Final_Project",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Final_Project",
       "RelativePath": "Final_Project.bundle.scp.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Final_Project.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Final_Project.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\app.css",
       "SourceId": "Final_Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
       "BasePath": "_content/Final_Project",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -112,12 +112,12 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\audio\\9cbcd320-b454-4137-a735-0225261bba1f.mp3",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\audio\\a70dbbcb-8420-43a1-ab1e-3d8b45eaaeb6.mp3",
       "SourceId": "Final_Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
       "BasePath": "_content/Final_Project",
-      "RelativePath": "audio/9cbcd320-b454-4137-a735-0225261bba1f.mp3",
+      "RelativePath": "audio/a70dbbcb-8420-43a1-ab1e-3d8b45eaaeb6.mp3",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,13 +128,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\audio\\9cbcd320-b454-4137-a735-0225261bba1f.mp3"
+      "OriginalItemSpec": "wwwroot\\audio\\a70dbbcb-8420-43a1-ab1e-3d8b45eaaeb6.mp3"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "Final_Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
       "BasePath": "_content/Final_Project",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "Final_Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
       "BasePath": "_content/Final_Project",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\favicon.png",
       "SourceId": "Final_Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
       "BasePath": "_content/Final_Project",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\js\\site.js",
       "SourceId": "Final_Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
       "BasePath": "_content/Final_Project",
       "RelativePath": "js/site.js",
       "AssetKind": "All",

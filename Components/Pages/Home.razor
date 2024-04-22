@@ -19,8 +19,7 @@
 </header>
 
 <div class="text-center">
-    <input type="file" @ref="input" multiple />
-    <button class="btn btn-success" @onclick="SubmitAsync">Submit</button><br />
+    <InputFile OnChange="SubmitAsync" ></InputFile><br />
 
     <ul>
         @foreach (var song in songs)
@@ -80,7 +79,7 @@
     private bool isDelete = false;
 
     private string? message;
-    private string update;
+    private string? update;
     private ElementReference updateInput;
     private string? delete;
 
@@ -89,25 +88,23 @@
         songs = await audioService.GetSongsAsync();
     }
 
-    private async Task SubmitAsync()
+    private async Task SubmitAsync(InputFileChangeEventArgs e)
     {
         try
         {
-            foreach (var file in await service.CreateReference(input).EnumerateFilesAsync())
+            foreach(var file in e.GetMultipleFiles())
             {
-                var info = await file.ReadFileInfoAsync();
-
-                if (info.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase))
+                if(file.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase))
                 {
-
-                    var buffer = new byte[info.Size];
+                    var buffer = new byte[file.Size];
+                    await file.OpenReadStream(buffer.Length).ReadAsync(buffer);
 
                     FormFile form = new(
                         new MemoryStream(buffer),
                         0,
                         buffer.Length,
-                        info.Name,
-                        info.Name
+                        file.Name,
+                        file.Name
                     );
 
                     var songId = await audioService.AddSongAsync(form);
@@ -115,7 +112,7 @@
                 }
                 else
                 {
-                    message = "Invalid file type!";
+                    message = "Invalid filetype!";
                 }
             }
         }
@@ -225,6 +222,7 @@
             var next = songs.FirstOrDefault();
             if(next != null)
             {
+                await jsRuntime.InvokeVoidAsync("console.log", "Playing song ID:", next.Id);
                 await jsRuntime.InvokeVoidAsync("playAudio", next.Id);
                 isPlaying = true;
             }
