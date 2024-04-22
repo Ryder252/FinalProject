@@ -1,0 +1,271 @@
+﻿@page "/"
+@using Final_Project.Backend;
+@using Microsoft.AspNetCore.Cors.Infrastructure;
+@using Microsoft.Extensions.Options;
+@using Microsoft.AspNetCore.Http
+@using Microsoft.Extensions.FileProviders;
+@using System.IO;
+@using Tewr.Blazor.FileReader;
+@inject IFileReaderService service;
+@inject IAudioService audioService;
+@inject IJSRuntime jsRuntime;
+@rendermode InteractiveServer
+
+<PageTitle>Blazor Music Player</PageTitle>
+
+<header class="text-center">
+    <h1>Blazor Music Player</h1>
+    <h4>It's Time to Jam</h4>
+</header>
+
+<div class="text-center">
+    <input type="file" @ref="input" multiple />
+    <button class="btn btn-success" @onclick="SubmitAsync">Submit</button><br />
+
+    <ul>
+        @foreach (var song in songs)
+        {
+            <li>@song.Name Id: @song.Id</li>
+        }
+    </ul><br />
+
+    @if(!String.IsNullOrEmpty(message))
+    {
+        <p>@message</p>
+    }
+
+    <div>
+        <button @onclick="ShowUpdate">Update</button>
+        <button @onclick="ShowDelete">Delete</button>
+
+        @if(isUpdate && !isDelete)
+        {
+            <p>
+                Song to update:
+                <input type="text" @bind=update  />
+                <input type="file" @ref="updateInput" />
+                <button @onclick="UpdateAsync">Confirm</button>
+            </p>
+        }
+
+        @if(isDelete && !isUpdate)
+        {
+            <p>
+                Song to delete:
+                <input type="text" @bind="delete" />
+                <button @onclick="DeleteAsync">Confirm</button>
+            </p>
+        }
+
+        <audio @ref="audioElement"></audio>
+    </div>
+
+
+    <button @onclick="TogglePlayPauseAsync">Play/Pause</button>
+    <button @onclick="PauseAsync">Pause</button>
+    <button @onclick="StopAsync">Stop</button>
+    <button @onclick="SkipAsync">Skip</button>
+    <button @onclick="PreviousAsync">Previous</button>
+</div>
+
+<script src="js/site.js"></script>
+
+@code {
+    private IEnumerable<Song>? songs;
+    private ElementReference input;
+    private ElementReference audioElement;
+
+    private bool isPlaying = false;
+    private bool isUpdate = false;
+    private bool isDelete = false;
+
+    private string? message;
+    private string update;
+    private ElementReference updateInput;
+    private string? delete;
+
+    protected override async Task OnInitializedAsync()
+    {
+        songs = await audioService.GetSongsAsync();
+    }
+
+    private async Task SubmitAsync()
+    {
+        try
+        {
+            foreach (var file in await service.CreateReference(input).EnumerateFilesAsync())
+            {
+                var info = await file.ReadFileInfoAsync();
+
+                if (info.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase))
+                {
+
+                    var buffer = new byte[info.Size];
+
+                    FormFile form = new(
+                        new MemoryStream(buffer),
+                        0,
+                        buffer.Length,
+                        info.Name,
+                        info.Name
+                    );
+
+                    var songId = await audioService.AddSongAsync(form);
+                    songs = await audioService.GetSongsAsync();
+                }
+                else
+                {
+                    message = "Invalid file type!";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task ShowUpdate()
+    {
+        isUpdate = true;
+        isDelete = false;
+    }
+
+    private async Task UpdateAsync()
+    {
+        try
+        {
+            if (!string.IsNullOrEmpty(update))
+            {
+                var files = await service.CreateReference(updateInput).EnumerateFilesAsync();
+                var file = files.FirstOrDefault();
+                var info = await file.ReadFileInfoAsync();
+
+                if (info != null && info.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase))
+                {
+                    var buffer = new byte[info.Size];
+
+                    FormFile form = new(
+                        new MemoryStream(buffer),
+                        0,
+                        buffer.Length,
+                        info.Name,
+                        info.Name
+                    );
+
+                    await audioService.UpdateSongAsync(new Guid(update), form);
+                    songs = await audioService.GetSongsAsync();
+
+                    message = $"Successfully updated song with ID: {update}";
+                }
+                else
+                {
+                    message = "Please select a valid MP3 file!";
+                }
+            }
+            else
+            {
+                message = "Please enter a valid song ID!";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            update = null;
+            StateHasChanged();
+        }
+    }
+
+    private async Task ShowDelete()
+    {
+        isDelete = true;
+        isUpdate = false;
+    }
+
+    private async Task DeleteAsync()
+    {
+        try
+        {
+            var deleteSong = songs.FirstOrDefault(s => s.Name.Equals(delete, StringComparison.OrdinalIgnoreCase));
+
+            if(deleteSong != null)
+            {
+                await audioService.DeleteSongAsync(deleteSong.Id);
+                songs = await audioService.GetSongsAsync();
+                message = $"Success! Deleted {deleteSong.Name}.";
+            }
+            else
+            {
+                message = "Song not found!";
+            }
+        }
+        catch(Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            delete = null;
+            StateHasChanged();
+        }
+    }
+
+
+    private async Task PlayAsync()
+    {
+        try
+        {
+            var next = songs.FirstOrDefault();
+            if(next != null)
+            {
+                await jsRuntime.InvokeVoidAsync("playAudio", next.Id);
+                isPlaying = true;
+            }
+            else
+            {
+                message = "You gotta add a song first!";
+            }
+        }
+        catch(Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}.";
+        }
+    }
+
+    private async Task PauseAsync()
+    {
+
+        isPlaying = false;
+    }
+
+    private async Task StopAsync()
+    {
+
+    }
+
+    private async Task SkipAsync()
+    {
+
+    }
+
+    private async Task PreviousAsync()
+    {
+
+    }
+
+    private async Task TogglePlayPauseAsync()
+    {
+        if (isPlaying)
+            await PauseAsync();
+
+        else
+            await PlayAsync();
+    }
+}

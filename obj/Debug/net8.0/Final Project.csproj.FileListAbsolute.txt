@@ -1,0 +1,32 @@
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\appsettings.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Final_Project.staticwebassets.runtime.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Final_Project.exe
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Final_Project.deps.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Final_Project.runtimeconfig.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Final_Project.dll
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Final_Project.pdb
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final Project.AssemblyInfoInputs.cache
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final Project.AssemblyInfo.cs
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final Project.csproj.CoreCompileInputs.cache
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final_Project.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\staticwebassets\msbuild.Final_Project.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\staticwebassets\msbuild.build.Final_Project.props
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Final_Project.props
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Final_Project.props
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\scopedcss\bundle\Final_Project.styles.css
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\scopedcss\projectbundle\Final_Project.bundle.scp.css
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final_Project.dll
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\refint\Final_Project.dll
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final_Project.pdb
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final Project.genruntimeconfig.cache
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\ref\Final_Project.dll
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\bin\Debug\net8.0\Tewr.Blazor.FileReader.dll
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final Project.csproj.AssemblyReference.cache
+C:\Users\Shane\OneDrive - East Tennessee State University\Desktop\Final Project\obj\Debug\net8.0\Final Pr.B69720BE.Up2Date

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50882C74-E2B6-416E-8EFC-BA53D80F181F}|Final Project.csproj|c:\\users\\shane\\onedrive - east tennessee state university\\desktop\\final project\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50882C74-E2B6-416E-8EFC-BA53D80F181F}|Final Project.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50882C74-E2B6-416E-8EFC-BA53D80F181F}|Final Project.csproj|c:\\users\\shane\\onedrive - east tennessee state university\\desktop\\final project\\backend\\audioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50882C74-E2B6-416E-8EFC-BA53D80F181F}|Final Project.csproj|solutionrelative:backend\\audioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AudioService.cs",
+              "DocumentMoniker": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\Backend\\AudioService.cs",
+              "RelativeDocumentMoniker": "Backend\\AudioService.cs",
+              "ToolTip": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\Backend\\AudioService.cs",
+              "RelativeToolTip": "Backend\\AudioService.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T04:17:08.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Desktop\\Final Project\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Components\\Pages\\Home.razor",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAAAGwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-18T20:24:29.307Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
