@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nKd3eJVJvG+2cRi/tK+AU7V+2IKvKOqzpHJy99FfVrw=",
+  "Hash": "foOWLHqP/3o+0KgNBiMKojGKcmw6+k4st4MesjC2r3I=",
   "Source": "Final_Project",
   "BasePath": "_content/Final_Project",
   "Mode": "Default",
@@ -112,25 +112,6 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\audio\\a70dbbcb-8420-43a1-ab1e-3d8b45eaaeb6.mp3",
-      "SourceId": "Final_Project",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
-      "BasePath": "_content/Final_Project",
-      "RelativePath": "audio/a70dbbcb-8420-43a1-ab1e-3d8b45eaaeb6.mp3",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\audio\\a70dbbcb-8420-43a1-ab1e-3d8b45eaaeb6.mp3"
-    },
-    {
       "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "Final_Project",
       "SourceType": "Discovered",
@@ -186,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\Final Project.styles.css",
+      "SourceId": "Final_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\",
+      "BasePath": "_content/Final_Project",
+      "RelativePath": "Final Project.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Final Project.styles.css"
     },
     {
       "Identity": "C:\\Users\\Shane\\OneDrive - East Tennessee State University\\Assignments\\CSCI 2910\\Final\\Final Project\\wwwroot\\js\\site.js",

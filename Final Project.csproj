@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\audio\" />
+    <PackageReference Include="Tewr.Blazor.FileReader" Version="3.3.2.23201" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Tewr.Blazor.FileReader" Version="3.3.2.23201" />
+    <Folder Include="wwwroot\audio\" />
   </ItemGroup>
 
 </Project>

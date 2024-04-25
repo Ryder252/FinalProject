@@ -42,32 +42,35 @@
         {
             var song = await GetSongByIdAsync(id);
 
-            if(song != null)
+            if (song != null)
             {
-                var filePath = Path.Combine(_filePath, song.FilePath);
-                if(File.Exists(filePath))
+                var filePath = Path.Combine(_filePath, $"{id}.mp3");
+                if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
                 }
 
-                var fileName = await SaveFileAsync(file, id);
-                var newPath = Path.Combine(_filePath, fileName);
+                using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+                await file.CopyToAsync(fileStream);
 
-                song.Id = Guid.NewGuid();
-                song.Name = Path.GetFileNameWithoutExtension(fileName);
-                song.FilePath = newPath;
+                song.Name = Path.GetFileNameWithoutExtension(file.Name);
+                song.FilePath = filePath;
 
                 UpdatePlaylist(song);
             }
         }
+
 
         public async Task DeleteSongAsync(Guid id)
         {
             var song = await GetSongByIdAsync(id);
             if (song != null)
             {
-                var filePath = Path.Combine(_filePath, song.FilePath);
-                File.Delete(filePath);
+                var filePath = Path.Combine(_filePath, $"{id}.mp3");
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
 
                 playList.Remove(song);
             }

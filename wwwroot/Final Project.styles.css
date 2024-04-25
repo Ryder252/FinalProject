@@ -1,0 +1,23 @@
+﻿.jersey-10-regular {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    background: #8651b0;
+}
+
+div {
+    padding: 4px;
+}
+
+header {
+    background: #b05168;
+    color: white;
+    border: 1px solid black;
+}
+
+p {
+    color: white;
+}

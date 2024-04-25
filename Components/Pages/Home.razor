@@ -5,6 +5,7 @@
 @using Microsoft.AspNetCore.Http
 @using Microsoft.Extensions.FileProviders;
 @using System.IO;
+@using System.Linq;
 @using Tewr.Blazor.FileReader;
 @inject IFileReaderService service;
 @inject IAudioService audioService;
@@ -14,73 +15,78 @@
 <PageTitle>Blazor Music Player</PageTitle>
 
 <header class="text-center">
-    <h1>Blazor Music Player</h1>
+    <h1 class="jersey-10-regular">Blazor Music Player</h1>
     <h4>It's Time to Jam</h4>
 </header>
 
 <div class="text-center">
-    <InputFile OnChange="SubmitAsync" ></InputFile><br />
+    <div>
+        <InputFile OnChange="SubmitAsync" multiple></InputFile><br />
+    </div>
 
-    <ul>
-        @foreach (var song in songs)
-        {
-            <li>@song.Name Id: @song.Id</li>
-        }
-    </ul><br />
-
-    @if(!String.IsNullOrEmpty(message))
+    @if (!String.IsNullOrEmpty(message))
     {
         <p>@message</p>
     }
 
     <div>
         <button @onclick="ShowUpdate">Update</button>
-        <button @onclick="ShowDelete">Delete</button>
+        <button @onclick="ShowDelete">Delete</button><br /><br />
 
-        @if(isUpdate && !isDelete)
+        @if (isUpdate && !isDelete)
         {
             <p>
-                Song to update:
-                <input type="text" @bind=update  />
-                <input type="file" @ref="updateInput" />
-                <button @onclick="UpdateAsync">Confirm</button>
+                Enter Song ID and upload song(s) to replace it:
+                <input type="text" @bind=update style="color: black;" />
+                <InputFile OnChange="UpdateAsync"></InputFile><br /><br />
+                <button @onclick="CancelAsync">Cancel</button>
             </p>
         }
 
-        @if(isDelete && !isUpdate)
+        @if (isDelete && !isUpdate)
         {
             <p>
                 Song to delete:
-                <input type="text" @bind="delete" />
-                <button @onclick="DeleteAsync">Confirm</button>
+                <input type="text" @bind="delete" style="color: black;" />
+                <button @onclick="DeleteAsync">Confirm</button><br /><br />
+                <button @onclick="CancelAsync">Cancel</button>
             </p>
         }
 
-        <audio @ref="audioElement"></audio>
+        <button @onclick="TogglePlayPauseAsync">Play/Stop</button>
+        <button @onclick="() => SkipAsync(currentIndex)">Skip</button>
+        <button @onclick="() => PreviousAsync(currentIndex)">Previous</button>
     </div>
-
-
-    <button @onclick="TogglePlayPauseAsync">Play/Pause</button>
-    <button @onclick="PauseAsync">Pause</button>
-    <button @onclick="StopAsync">Stop</button>
-    <button @onclick="SkipAsync">Skip</button>
-    <button @onclick="PreviousAsync">Previous</button>
+    <hr />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Current Playlist</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var song in songs)
+            {
+                <tr>
+                    <td>@song.Name ID: @song.Id</td>
+                </tr>
+            }
+        </tbody>
+    </table><br />
 </div>
-
 <script src="js/site.js"></script>
 
 @code {
     private IEnumerable<Song>? songs;
-    private ElementReference input;
-    private ElementReference audioElement;
 
     private bool isPlaying = false;
     private bool isUpdate = false;
     private bool isDelete = false;
 
+    private int currentIndex = 0;
+
     private string? message;
     private string? update;
-    private ElementReference updateInput;
     private string? delete;
 
     protected override async Task OnInitializedAsync()
@@ -92,29 +98,27 @@
     {
         try
         {
-            foreach(var file in e.GetMultipleFiles())
+            foreach (var file in e.GetMultipleFiles())
             {
-                if(file.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase))
-                {
-                    var buffer = new byte[file.Size];
-                    await file.OpenReadStream(buffer.Length).ReadAsync(buffer);
+                using var memory = new MemoryStream();
+                await file.OpenReadStream(file.Size).CopyToAsync(memory);
+                var buffer = memory.ToArray();
 
-                    FormFile form = new(
-                        new MemoryStream(buffer),
-                        0,
-                        buffer.Length,
-                        file.Name,
-                        file.Name
-                    );
+                FormFile form = new(
+                    new MemoryStream(buffer),
+                    0,
+                    buffer.Length,
+                    file.Name,
+                    file.Name
+                );
 
-                    var songId = await audioService.AddSongAsync(form);
-                    songs = await audioService.GetSongsAsync();
-                }
-                else
-                {
-                    message = "Invalid filetype!";
-                }
+                var songId = await audioService.AddSongAsync(form);
+                songs = await audioService.GetSongsAsync();
             }
+        }
+        catch (System.TimeoutException tex)
+        {
+            message = $"Timeout error: {tex.Message}";
         }
         catch (Exception ex)
         {
@@ -126,43 +130,46 @@
         }
     }
 
-    private async Task ShowUpdate()
+    private void ShowUpdate()
     {
         isUpdate = true;
         isDelete = false;
+        update = "";
+        message = "";
     }
 
-    private async Task UpdateAsync()
+
+    private async Task UpdateAsync(InputFileChangeEventArgs e)
     {
         try
         {
             if (!string.IsNullOrEmpty(update))
             {
-                var files = await service.CreateReference(updateInput).EnumerateFilesAsync();
-                var file = files.FirstOrDefault();
-                var info = await file.ReadFileInfoAsync();
-
-                if (info != null && info.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase))
+                foreach (var file in e.GetMultipleFiles())
                 {
-                    var buffer = new byte[info.Size];
+                    var buffer = new byte[file.Size];
+                    var memoryStream = new MemoryStream();
 
-                    FormFile form = new(
-                        new MemoryStream(buffer),
+                    using var stream = file.OpenReadStream(file.Size);
+                    int bytesRead;
+                    while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                    {
+                        await memoryStream.WriteAsync(buffer, 0, bytesRead);
+                    }
+
+                    var form = new FormFile(
+                        memoryStream,
                         0,
-                        buffer.Length,
-                        info.Name,
-                        info.Name
+                        memoryStream.Length,
+                        file.Name,
+                        file.Name
                     );
 
                     await audioService.UpdateSongAsync(new Guid(update), form);
                     songs = await audioService.GetSongsAsync();
+                }
 
-                    message = $"Successfully updated song with ID: {update}";
-                }
-                else
-                {
-                    message = "Please select a valid MP3 file!";
-                }
+                message = $"Successfully updated song with ID: {update}";
             }
             else
             {
@@ -176,14 +183,17 @@
         finally
         {
             update = null;
+            isUpdate = false;
             StateHasChanged();
         }
     }
 
-    private async Task ShowDelete()
+    private void ShowDelete()
     {
         isDelete = true;
         isUpdate = false;
+        delete = "";
+        message = "";
     }
 
     private async Task DeleteAsync()
@@ -194,6 +204,7 @@
 
             if(deleteSong != null)
             {
+
                 await audioService.DeleteSongAsync(deleteSong.Id);
                 songs = await audioService.GetSongsAsync();
                 message = $"Success! Deleted {deleteSong.Name}.";
@@ -210,21 +221,22 @@
         finally
         {
             delete = null;
+            isDelete = false;
             StateHasChanged();
         }
     }
 
-
-    private async Task PlayAsync()
+    private async Task PlayAsync(int index)
     {
         try
         {
-            var next = songs.FirstOrDefault();
+            var next = songs.ElementAtOrDefault(index);
             if(next != null)
             {
-                await jsRuntime.InvokeVoidAsync("console.log", "Playing song ID:", next.Id);
                 await jsRuntime.InvokeVoidAsync("playAudio", next.Id);
                 isPlaying = true;
+                currentIndex = index;
+                message = $"Playing {next.Name}";
             }
             else
             {
@@ -239,23 +251,54 @@
 
     private async Task PauseAsync()
     {
-
-        isPlaying = false;
+        try
+        {
+            await jsRuntime.InvokeVoidAsync("stopAudio"); 
+            isPlaying = false;
+            message = "";
+        }
+        catch(Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}.";
+        }
     }
 
-    private async Task StopAsync()
+    private async Task SkipAsync(int index)
     {
-
+        try
+        {
+            if(index < songs.Count() - 1)
+            {
+                await PlayAsync(index + 1);
+            }
+            else
+            {
+                message = "No more songs to play!";
+            }
+        }
+        catch(Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}.";
+        }
     }
 
-    private async Task SkipAsync()
+    private async Task PreviousAsync(int index)
     {
-
-    }
-
-    private async Task PreviousAsync()
-    {
-
+        try
+        {
+            if(index > 0)
+            {
+                await PlayAsync(index - 1);
+            }
+            else
+            {
+                message = "No previous songs to play!";
+            }
+        }
+        catch(Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}.";
+        }
     }
 
     private async Task TogglePlayPauseAsync()
@@ -264,6 +307,13 @@
             await PauseAsync();
 
         else
-            await PlayAsync();
+            await PlayAsync(currentIndex);
+    }
+
+    private void CancelAsync()
+    {
+        isUpdate = false;
+        isDelete = false;
+        StateHasChanged();
     }
 }
